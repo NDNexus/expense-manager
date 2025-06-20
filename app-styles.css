@@ -1,0 +1,365 @@
+/* ------------------------------
+  GLOBAL STYLES
+------------------------------ */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #f7f7f7;
+    color: #333;
+    padding-bottom: 80px;
+    /* space for bottom bar */
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.settings-buttons{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* ------------------------------
+  SCREEN MANAGEMENT
+------------------------------ */
+.screen {
+    display: none;
+    padding: 20px 0;
+}
+
+.screen:not(.hidden) {
+    display: block;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ------------------------------
+  DEFAULT HEADER STYLES
+------------------------------ */
+header {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+h1 {
+    color: #0d6efd;
+}
+
+/* ------------------------------
+  APP HEADER BAR + ICON BUTTONS
+------------------------------ */
+.app-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    background: #ffffff;
+    padding: 12px 16px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 998;
+    border-radius: 5px;
+}
+
+.app-header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.screen-title-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 10px;
+    margin: 0;
+    height: auto; /* or explicitly set a small height if needed */
+}
+
+.screen-title-box h3 {
+    margin: 0;
+    font-size: 1rem; /* shrink font size if needed */
+    line-height: 1.2; /* tighter line spacing */
+}
+
+/* .app-header, .app-header-content, .screen-title-box {
+    border: 1px dashed red;
+} */
+
+.app-name {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #0d6efd;
+    font-weight: 700;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #0d6efd;
+    cursor: pointer;
+}
+
+.icon-btn:hover {
+    color: white;
+}
+
+body.dark .icon-btn:hover {
+    color: #ffffff;
+}
+
+/* ------------------------------
+  SIDEBAR MENU STYLES
+------------------------------ */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background: #ffffff;
+    border-right: 1px solid #ddd;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 40px;
+}
+
+.sidebar nav ul li {
+    margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.sidebar nav ul li a i {
+    margin-right: 10px;
+}
+
+.sidebar.show {
+    transform: translateX(0);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #666;
+}
+
+/* ------------------------------
+  SIDEBAR OVERLAY (Backdrop Blur)
+------------------------------ */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 998;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.hidden {
+    display: none;
+}
+
+/* ------------------------------
+  FORM + INPUT FIELDS
+------------------------------ */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: #0d6efd;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #0b5ed7;
+}
+
+/* ------------------------------
+  EXPENSE LIST SECTION
+------------------------------ */
+.expense-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.expense-list li {
+    background: white;
+    margin: 10px 0;
+    padding: 10px;
+    border-left: 5px solid #0d6efd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ------------------------------
+  SUMMARY FOOTER SECTION
+------------------------------ */
+footer.summary {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* ------------------------------
+  STICKY BOTTOM BAR
+------------------------------ */
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #ffffff;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 999;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.bar-btn {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #0d6efd;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.bar-btn:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Floating Add Button (FAB) */
+.fab {
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 50%;
+    padding: 12px;
+    font-size: 1.6rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-top: -25px;
+}
+
+/* ------------------------------
+  DARK MODE SUPPORT
+------------------------------ */
+body.dark {
+    background: #1e1e1e;
+    color: #f0f0f0;
+}
+
+body.dark .app-header,
+body.dark .sidebar {
+    background: #2c2c2c;
+    color: #f0f0f0;
+}
+
+body.dark a,
+body.dark .icon-btn {
+    color: #f0f0f0;
+}
+
+body.dark .sidebar nav ul li a {
+    color: #f0f0f0;
+}
+
+body.dark .bottom-bar {
+    background: #2c2c2c;
+    border-top: 1px solid #444;
+}
+
+body.dark .bar-btn {
+    color: #f0f0f0;
+}
+
+body.dark .bar-btn:hover {
+    color: #ffffff;
+}
+
+/* Dark mode form fields */
+body.dark input,
+body.dark select,
+body.dark textarea {
+    background-color: #2c2c2c;
+    color: #ffffff;
+    border: 1px solid #555;
+}
+
+body.dark input::placeholder {
+    color: #bbbbbb;
+}
+
+body.dark button:hover {
+    background: #0b5ed7;
+}
+
+/* ------------------------------
+  EXPENSE DISPLAY LIST ON HOME
+------------------------------ */
+.expense-display-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.expense-display-list li {
+    background: #ffffff;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-left: 4px solid #0d6efd;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+body.dark .expense-display-list li {
+    background: #2c2c2c;
+    color: #f0f0f0;
+    border-color: #0d6efd;
+}

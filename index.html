@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Manager</title>
+
+    <!-- ✅ FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- 🔗 Styles -->
+    <link rel="stylesheet" href="app-styles.css" />
+
+    <!-- 🧩 PWA Manifest  -->
+    <link rel="manifest" href="manifest.json" />
+</head>
+
+<body>
+    <!-- 🔝 Top Header Bar -->
+    <div class="app-header hidden">
+        <div class="app-header-content">
+            <img id="logo" src="/Images/Dark Blue Logo.png" alt="Logo" class="logo" width="50px" />
+            <div class="app-name">Expense Manager</div>
+            <button id="toggle-theme-btn" class="icon-btn">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+        <div class="screen-title-box">
+            <h3 id="screen-title">Home</h3>
+        </div>
+    </div>
+
+    <!-- 💬 Username Setup Screen -->
+    <div id="username-screen" class="screen">
+        <div class="container">
+            <h2>Welcome!</h2>
+            <form id="username-form">
+                <input type="text" id="username-input" placeholder="Enter your name" required />
+                <button type="submit">Continue</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 🏠 Home Screen -->
+    <div id="home-screen" class="screen hidden">
+        <div class="container">
+            <h2 id="greeting">Welcome, User</h2>
+            <div id="recent-expenses" class="expense-display-list"></div>
+            <p id="no-expenses" class="hidden">No expenses to show.</p>
+        </div>
+    </div>
+
+    <!-- ➕ Add Expense Screen -->
+    <div id="add-expense-screen" class="screen hidden">
+        <div class="container">
+            <h2>Add Expense</h2>
+            <form id="expense-form">
+                <input type="number" id="amount" placeholder="Amount (₹)" required />
+                <input type="text" id="category" placeholder="Category" required />
+                <input type="text" id="note" placeholder="Note (optional)" />
+                <input type="date" id="date" required />
+                <button type="submit" id="addExpenseBtn">Add Expense</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ⚙️ Settings Screen -->
+    <div id="settings-screen" class="screen hidden">
+        <div class="container">
+            <h2>Settings</h2>
+            <div class="settings-buttons">
+                <button id="change-username-btn">Change Username</button>
+                <button id="clear-data-btn">Clear All Data</button>
+                <button id="back-home-btn">Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔘 Bottom Navigation Bar -->
+    <div class="bottom-bar hidden">
+        <button class="bar-btn" id="home-btn"><i class="fas fa-home"></i></button>
+        <button class="bar-btn fab" id="add-btn"><i class="fas fa-plus"></i></button>
+        <button class="bar-btn" id="settings-btn"><i class="fas fa-cog"></i></button>
+    </div>
+
+    <!-- 📜 JavaScript -->
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
