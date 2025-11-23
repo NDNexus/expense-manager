@@ -30,17 +30,11 @@ Built with vanilla JavaScript, HTML, CSS, and IndexedDB — no frameworks, no fl
 
 ## 📱 Try It Live
 
-👉 [Launch App](https://expense-manager.vercel.app)
-
-(Replace with your actual link once deployed)
+👉 [Launch App](https://expensemanager.nadeemmuhammed.com)
 
 ---
 
-## 📷 Screenshots
 
-_Add screenshots here once you take them (optional)_
-
----
 
 ## 🚀 How to Run Locally
 
